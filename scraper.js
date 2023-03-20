@@ -53,7 +53,7 @@ function run(db) {
 
 // 		readRows(db);
 
-// 		db.close();
+		db.close();
 	});
 }
 
