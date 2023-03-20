@@ -41,18 +41,19 @@ function fetchPage(url, callback) {
 
 function run(db) {
 	// Use request to read in pages.
-	fetchPage("https://morph.io", function (body) {
+	fetchPage("https://www.anekdotai.lt/anekdotai/", function (body) {
 		// Use cheerio to find things in the page with css selectors.
 		var $ = cheerio.load(body);
 
-		var elements = $("div.media-body span.p-name").each(function () {
+		var elements = $("div.pagination a").each(function () {
 			var value = $(this).text().trim();
-			updateRow(db, value);
+			console.log(value);
+// 			updateRow(db, value);
 		});
 
-		readRows(db);
+// 		readRows(db);
 
-		db.close();
+// 		db.close();
 	});
 }
 
